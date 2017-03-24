@@ -1,0 +1,11 @@
+body {
+    background: #eee;
+}
+
+.black-border {
+    border: #000 3px solid;
+}
+
+.green-border {
+    border: green 3px solid;
+}
