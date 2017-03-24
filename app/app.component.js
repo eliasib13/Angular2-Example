@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = 'APP FAVORITOS TÍTULO';
+        this.title = 'APP FAVORITOS';
         this.description = 'Aplicación web SPA con Angular 2 para gestionar favoritos online.';
     }
     return AppComponent;
