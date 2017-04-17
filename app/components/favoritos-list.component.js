@@ -21,6 +21,10 @@ var FavoritosListComponent = (function () {
         console.log('FavoritosListComponent cargado.');
         this._favoritoService.getFavoritos().subscribe(function (result) {
             console.log(result);
+            _this.favoritos = result.favoritos;
+            if (!_this.favoritos) {
+                alert('Error en el servidor');
+            }
         }, function (error) {
             _this.errorMessage = error;
             if (_this.errorMessage != null) {
