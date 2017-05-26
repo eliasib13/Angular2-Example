@@ -56,7 +56,7 @@ header #logo {
     margin: 0px;
 }
 
-.favorito-item {
+.favorito-item{
     list-style: none;
     width: 31%;
     border: 1px solid #ddd;
@@ -118,6 +118,18 @@ header #logo {
     border-color: #cc941c;
     color: white;
     margin-left: 0px;
+}
+
+.favorito-box {
+    margin-left: 25px;
+    background: white;
+    color: black;
+    border: 1px solid #ddd;
+    width: 90%;
+    min-height: 150px;
+    padding: 20px;
+    padding-bottom: 20px;
+    margin-top: 20px;
 }
 
 footer {
