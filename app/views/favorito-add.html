@@ -4,17 +4,26 @@
     <form #formFavorito="ngForm" (ngSubmit)="onSubmit()" >
         <label>Título:</label>
         <p>
-            <input type="text" name="title" #title="ngModel" [(ngModel)]="favorito.title" />
+            <input type="text" name="title" #title="ngModel" [(ngModel)]="favorito.title" required />
+            <span *ngIf="title.touched && !title.valid">
+                El título no es correcto
+            </span>
         </p>
 
         <label>Descripción:</label>
         <p>
-            <input type="text" name="description" #description="ngModel" [(ngModel)]="favorito.description" />
+            <textarea type="text" name="description" #description="ngModel" [(ngModel)]="favorito.description" required></textarea>
+            <span *ngIf="description.touched && !description.valid">
+                La decripción no es correcta
+            </span>
         </p>
 
         <label>URL:</label>
         <p>
-            <input type="url" name="url" #url="ngModel" [(ngModel)]="favorito.url" />
+            <input type="url" name="url" #url="ngModel" [(ngModel)]="favorito.url" required />
+            <span *ngIf="url.touched && !url.valid">
+                Introduzca una URL correcta
+            </span>
         </p>
 
         <input type="submit" value="{{titleSection}}" />
