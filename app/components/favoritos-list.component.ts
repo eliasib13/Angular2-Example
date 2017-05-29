@@ -16,6 +16,8 @@ export class FavoritosListComponent implements OnInit {
     public favoritos: Favorito[];
     public errorMessage;
 
+    public confirmado;
+
     constructor(
         private _favoritoService: FavoritoService
     ){
@@ -25,17 +27,48 @@ export class FavoritosListComponent implements OnInit {
 
     ngOnInit() {
         console.log('FavoritosListComponent cargado.');
-        this._favoritoService.getFavoritos().subscribe(
-            result => {
-                console.log(result);
-                this.favoritos = result.favoritos;
+        this.getFavoritos();
+    }
 
-                if (!this.favoritos) {
-                    alert('Error en el servidor');
+    getFavoritos() {
+        this._favoritoService.getFavoritos().subscribe(
+                    result => {
+                        console.log(result);
+                        this.favoritos = result.favoritos;
+
+                        if (!this.favoritos) {
+                            alert('Error en el servidor');
+                        }
+                        else {
+                            this.loading = false;
+                        }
+                    },
+                    error => {
+                        this.errorMessage = <any>error;
+
+                        if (this.errorMessage != null) {
+                            console.log(this.errorMessage);
+                            alert('Error en la petición');
+                        }
+                    }
+                );
+    }
+
+    onBorrarConfirm(id) {
+        this.confirmado = id;
+    }
+
+    onCancelarConfirm(id) {
+        this.confirmado = null;
+    }
+
+    onBorrarFavorito(id) {
+        this._favoritoService.deleteFavorito(id).subscribe(
+            response => {
+                if(!response.message) {
+                    alert('Error en la petición');
                 }
-                else {
-                    this.loading = false;
-                }
+                this.getFavoritos();
             },
             error => {
                 this.errorMessage = <any>error;
@@ -45,6 +78,6 @@ export class FavoritosListComponent implements OnInit {
                     alert('Error en la petición');
                 }
             }
-        );
+        )
     }
 }

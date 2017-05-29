@@ -171,3 +171,11 @@ footer {
     margin-top: 20px;
     color: gray;
 }
+
+.seguro {
+    margin-top: -95px;
+    background: white !important;
+    position: absolute;
+    width: 275px;
+    text-align: center;
+}
