@@ -7,13 +7,19 @@ import { routing, appRoutingProviders } from './app.routing';
 import { AppComponent }  from './app.component';
 import { FavoritosListComponent } from './components/favoritos-list.component';
 import { FavoritoDetailComponent } from './components/favorito-detail.component';
+import { FavoritoAddComponent } from './components/favorito-add.component';
  
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, HttpModule, routing ],
+  imports:      [ 
+    BrowserModule, 
+    FormsModule, 
+    HttpModule, 
+    routing ],
   declarations: [ 
     AppComponent,
     FavoritosListComponent,
-    FavoritoDetailComponent
+    FavoritoDetailComponent,
+    FavoritoAddComponent
   ],
   providers: [ appRoutingProviders ],
   bootstrap:    [ AppComponent ]
